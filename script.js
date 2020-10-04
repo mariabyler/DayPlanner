@@ -1,6 +1,29 @@
 $(document).ready(function () {// essentially tells engine to load 1)html & 2)css first.
     //display current day & time.
-    $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm:ss a"));
+    function update() {
+        $('#currentDay').html(moment().format('MMMM Do YYYY, h:mm:ss a'));
+      }
+    
+     var calender = $.map($("div[time]"), function(div) {
+        return $(div).attr("time");
+    });
+    
+    console.log(calender, "time"); 
+    
+    // calender.forEach(function(){{
+    //     if (calender.moment === "ago" ) {
+    //     calender.style.color = ".past";
+    //     } 
+    //     else if (calender.moment === "from now") {
+    //         calender.style.color = ".future";
+    //         }
+    //         else {
+    //             calender.style.color = ".present";
+    //         }
+    // };
+    });
+    setInterval(update, 1000);
+    
     //Assign saveBtn click listener for user input and time stamp??
     $(".saveBtn").on("click", function () {
         //get nearby values.
