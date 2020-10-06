@@ -21,8 +21,9 @@
     <link rel="stylesheet" href="style.css" />
     <title>Work Day Scheduler</title>
   </head>
-
+  <!-- start main content   -->
   <body>
+    <!-- page header -->
     <header class="jumbotron">
       <h1 class="display-3">Work Day Scheduler</h1>
       <p class="lead">A simple calendar app for scheduling your work day</p>
@@ -30,16 +31,7 @@
     </header>
     <main>
       <div class="container mx-auto">
-        <!-- Timeblocks -->
-        <div id="hour8" class="row time-block">
-          <div class="col-lg-2 hour" time="1">
-              1:00am
-          </div>
-          <textarea class="col-lg-8 text">
-          </textarea>
-          <button class="btn saveBtn col-lg-2"><i class="fas fa-save"></i></button>
-        </div>
-
+        <!-- start timeblocks -->
         <div id="hour8" class="row time-block">
           <div class="col-lg-2 hour" time="8">
               8:00am
@@ -121,7 +113,9 @@
           <button class="btn saveBtn col-lg-2"><i class="fas fa-save"></i></button>
         </div>
       </div>
+      <!-- end timeblocks -->
     </main>
+    <!-- end main content -->
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>

@@ -1,5 +1,6 @@
 $( document ).ready(function() {
     console.log( "ready!" );
+    // display current date and time
     function update() {
         $('#currentDay').html(moment().format('MMMM Do YYYY, h:mm:ss a'));
       }
@@ -26,38 +27,38 @@ $( document ).ready(function() {
 
     function timetracker() {
         // array of time attributes
-        var timeAttr = $.map($("div[time]"), function(div) {
-            return $(div).attr("time");
+        var timeAttr = $.map($('div[time]'), function (div) {
+          return $(div).attr('time');
         });
-        console.log(timeAttr, "time attr"); 
+        console.log(timeAttr, 'time attr');
 
-        var timeChunk = parseInt(timeAttr); 
-        for (i = 0; i < timeChunk.length; i++) {}
-        console.log(timeChunk, "var for comparison"); 
+        // parsing the string from the array and looping through them  
+        var parsedTimes = timeAttr.map(t => parseInt(t));
+        for (i = 0; i < parsedTimes.length; i++) {}
+        console.log(parsedTimes, 'var for comparison');
 
         //get current number of hours.
         var currenttime = moment().hour();
-        console.log(currenttime, "moment js current time"); 
+        console.log(currenttime, 'moment js current time');
+
         // loop over time blocks
-            $(".text").each(function() { 
-                //check if we've moved past this time
-                if (timeChunk[i] < currenttime) {
-                    $(this).addClass("past");
-                    $(this).removeClass("future");
-                    $(this).removeClass("present");
-                }
-                else if (timeChunk[i] === currenttime) {
-                    $(this).removeClass("past");
-                    $(this).addClass("present");
-                    $(this).removeClass("future");
-                }
-                else {
-                    $(this).removeClass("present");
-                    $(this).removeClass("past");
-                    $(this).addClass("future");
-                }
-            }); 
-    }
+        $('.text').each(function () {
+          //if conditionals to check time and change styling accordingly
+          if (parsedTimes[i] < currenttime) {
+            $(this).removeClass('future');
+            $(this).removeClass('present');
+            $(this).addClass('past');
+          } else if (parsedTimes[i] === currenttime) {
+            $(this).removeClass('past');
+            $(this).removeClass('future');
+            $(this).addClass('present');
+          } else {
+            $(this).removeClass('present');
+            $(this).removeClass('past');
+            $(this).addClass('future');
+          }
+        });
+      }
 timetracker();
 
 });
