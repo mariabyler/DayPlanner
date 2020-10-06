@@ -34,7 +34,7 @@ $( document ).ready(function() {
 
         // parsing the string from the array and looping through them  
         var parsedTimes = timeAttr.map(t => parseInt(t));
-        for (i = 0; i < parsedTimes.length; i++) {}
+        
         console.log(parsedTimes, 'var for comparison');
 
         //get current number of hours.
@@ -42,8 +42,9 @@ $( document ).ready(function() {
         console.log(currenttime, 'moment js current time');
 
         // loop over time blocks
-        $('.text').each(function () {
+        $('.text').each(function (i) {
           //if conditionals to check time and change styling accordingly
+          console.log(parsedTimes[i], "parsedtime", currenttime, "curretn")
           if (parsedTimes[i] < currenttime) {
             $(this).removeClass('future');
             $(this).removeClass('present');
