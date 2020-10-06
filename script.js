@@ -30,16 +30,12 @@ $( document ).ready(function() {
         var timeAttr = $.map($('div[time]'), function (div) {
           return $(div).attr('time');
         });
-        console.log(timeAttr, 'time attr');
 
         // parsing the string from the array and looping through them  
         var parsedTimes = timeAttr.map(t => parseInt(t));
-        
-        console.log(parsedTimes, 'var for comparison');
 
         //get current number of hours.
         var currenttime = moment().hour();
-        console.log(currenttime, 'moment js current time');
 
         // loop over time blocks
         $('.text').each(function (i) {
