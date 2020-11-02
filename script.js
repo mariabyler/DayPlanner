@@ -40,7 +40,6 @@ $( document ).ready(function() {
         // loop over time blocks
         $('.text').each(function (i) {
           //if conditionals to check time and change styling accordingly
-          console.log(parsedTimes[i], "parsedtime", currenttime, "curretn")
           if (parsedTimes[i] < currenttime) {
             $(this).removeClass('future');
             $(this).removeClass('present');
